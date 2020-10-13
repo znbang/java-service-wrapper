@@ -192,7 +192,7 @@ public class WrapperJarApp
             // Store the main jar in the classpath.
             try
             {
-                classURLs[0] = new URL( "file:" + file.getAbsolutePath() );
+                classURLs[0] = file.getAbsoluteFile().toURI().toURL();
             }
             catch ( MalformedURLException e )
             {
@@ -212,7 +212,7 @@ public class WrapperJarApp
                 String classEntry = st.nextToken();
                 try
                 {
-                    classURLs[i] = new URL( "file:" + new File( parent, classEntry).getAbsolutePath() );
+                    classURLs[i] = new File( parent, classEntry).getAbsoluteFile().toURI().toURL();
                 }
                 catch ( MalformedURLException e )
                 {
